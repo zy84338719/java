@@ -2,6 +2,10 @@ package com.zhangyi.zip;
 
 import java.io.*;
 
+/**
+ * @author zhangyi
+ * 将规格化文件数据切分为指定大小文件组
+ */
 public class Tar {
     /**
      * @description
@@ -56,8 +60,9 @@ public class Tar {
         File[] inFiles;
         File outFile = new File(outFileName);
         File inFilesFolder = new File(fileFolder);
-        if(!inFilesFolder.exists())
-            throw new FileNotFoundException("Source file folder not found.filePath:"+fileFolder);
+        if(!inFilesFolder.exists()) {
+            throw new FileNotFoundException("Source file folder not found.filePath:" + fileFolder);
+        }
         //get confirmed condition files
         inFiles = inFilesFolder.listFiles(new FilenameFilter() {
             @Override
@@ -74,7 +79,6 @@ public class Tar {
             while((readed = infile.read())!= -1){
                 out.write(readed);
             }
-
             infile.close();
         }
         out.close();
