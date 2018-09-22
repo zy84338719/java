@@ -7,6 +7,10 @@ import static com.zhangyi.bank.FileOperate.getFile;
 import static com.zhangyi.bank.FileOperate.setFile;
 import static com.zhangyi.bank.FileOperate.setText;
 
+/**
+ * @author 张易
+ * 对外操作类
+ */
 public class Operate {
 
 
