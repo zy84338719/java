@@ -7,6 +7,9 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 
 public class BounceThread {
@@ -25,6 +28,9 @@ class BounceFrame extends JFrame{
     private BallComponent comp;
     private static final int DELAY = 5;
     private static Boolean FLAG = false;
+    ThreadPoolExecutor executor =
+            new ThreadPoolExecutor(3, 20, 5,
+                    TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
     BounceFrame(){
         comp = new BallComponent();
         add(comp, BorderLayout.CENTER);
@@ -53,27 +59,12 @@ class BounceFrame extends JFrame{
         System.exit(0);
     }
 
-    private void addBall(Point point){
+    private Ball addBall(Point point){
         double dx,dy;
         dx = 2;
         dy = -2;
         Ball ball = new Ball(point.getX(), point.getY(), dx, dy);
-        comp.add(ball);
-        Runnable r = ()->{
-            try{
-                while(true){
-                    ball.move(comp.getBounds());
-                    Thread.sleep(DELAY);
-                }
-            }catch (InterruptedException e){
-                Thread.currentThread().interrupt();
-            }
-        };
-
-        Thread t;
-        t = new Thread(r);
-        System.out.println(t.getId());
-        t.start();
+        return ball;
     }
 
 
@@ -81,7 +72,23 @@ class BounceFrame extends JFrame{
         @Override
         public void mouseClicked(MouseEvent event){
             if(FLAG){
-                addBall(event.getPoint());
+                Ball ball= addBall(event.getPoint());
+                Runnable r = ()->{
+                    try{
+                        comp.add(ball);
+                        while(true){
+                            ball.move(comp.getBounds());
+                            Thread.sleep(DELAY);
+                        }
+                    }catch (InterruptedException e){
+                        Thread.currentThread().interrupt();
+                    }
+                };
+                executor.execute(r);
+                System.out.println(executor.getTaskCount());
+                if(executor.getTaskCount()>=20){
+                    FLAG = false;
+                }
             }
         }
     }

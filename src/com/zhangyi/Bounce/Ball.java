@@ -20,7 +20,7 @@ public class Ball {
         this.dx = Math.random() * dx;
         this.dy = Math.random() * dy;
         Random rand = new Random();
-        setColor(new Color(rand.nextInt(256)+1,rand.nextInt(256)+1,rand.nextInt(256)+1));
+        setColor(new Color(rand.nextInt(255)+1,rand.nextInt(255)+1,rand.nextInt(255)+1));
     }
 
     public Ball(){

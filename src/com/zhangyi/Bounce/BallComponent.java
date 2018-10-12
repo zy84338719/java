@@ -18,9 +18,9 @@ public class BallComponent extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        for (Ball b : balls) {
-            g2.setColor(b.getColor());
-            g2.fill(b.getShape());
+        for (int i=0;i<balls.size();i++) {
+            g2.setColor(balls.get(i).getColor());
+            g2.fill(balls.get(i).getShape());
         }
         repaint();
     }
