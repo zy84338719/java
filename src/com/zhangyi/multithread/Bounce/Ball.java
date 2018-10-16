@@ -1,4 +1,4 @@
-package com.zhangyi.Bounce;
+package com.zhangyi.multithread.Bounce;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;

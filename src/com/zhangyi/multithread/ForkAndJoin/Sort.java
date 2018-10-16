@@ -1,4 +1,4 @@
-package com.zhangyi.ForkAndJoin;
+package com.zhangyi.multithread.ForkAndJoin;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;

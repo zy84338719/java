@@ -1,10 +1,10 @@
-package com.zhangyi.ForkAndJoin;
+package com.zhangyi.multithread.ForkAndJoin;
 
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 
-import static com.zhangyi.ForkAndJoin.SumTask.genArray;
+import static com.zhangyi.multithread.ForkAndJoin.SumTask.genArray;
 
 public class Main {
     public static void main(String[] args) throws ExecutionException, InterruptedException {

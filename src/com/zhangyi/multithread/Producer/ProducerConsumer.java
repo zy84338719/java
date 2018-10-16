@@ -1,7 +1,6 @@
-package com.zhangyi.Producer;
+package com.zhangyi.multithread.Producer;
 
 import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

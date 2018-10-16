@@ -1,6 +1,4 @@
-package com.zhangyi.Bounce;
-
-import com.sun.source.tree.Tree;
+package com.zhangyi.multithread.Bounce;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package com.zhangyi.Bounce;
+package com.zhangyi.multithread.Bounce;
 
 import javax.swing.*;
 import java.awt.*;

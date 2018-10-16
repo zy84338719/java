@@ -1,9 +1,8 @@
-package com.zhangyi.Producer;
+package com.zhangyi.multithread.Producer;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
-import java.util.concurrent.LinkedBlockingQueue;
 
 public class Main {
     public static Queue queue;

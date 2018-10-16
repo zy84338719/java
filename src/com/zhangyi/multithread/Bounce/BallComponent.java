@@ -1,9 +1,8 @@
-package com.zhangyi.Bounce;
+package com.zhangyi.multithread.Bounce;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Random;
+        import javax.swing.*;
+        import java.awt.*;
+        import java.util.ArrayList;
 
 public class BallComponent extends JPanel {
     private static final int DEFAULT_WIDTH = 450;
