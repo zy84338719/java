@@ -19,5 +19,6 @@ class TestDemo{
         FutureTask<String> task = new FutureTask(new callable());
         new Thread(task).start();
         System.out.println(task.get());
+
     }
 }
