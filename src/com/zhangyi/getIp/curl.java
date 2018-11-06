@@ -23,7 +23,7 @@ public class curl {
                 flag = true;
             }
             if (flag && Pattern.matches("当前.*", line)) {
-                String ip = line.split(" ")[1].split("：")[1].trim();
+                String ip = line.split(" ")[2];
                 writefile("/opt/dev/java/Course/ip", ip);
             }
         }
